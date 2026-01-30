@@ -19,7 +19,6 @@ const Search = () => {
     const handleSelectUser = (user: User) => {
         setSelectedUser(user);
     };
-    // البحث عند كتابة المستخدم
     const handleSearch = async (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
         setQuery(value);
@@ -29,7 +28,7 @@ const Search = () => {
         }
         setLoading(true);
         const { data, error } = await supabase
-            .from<User>("profiles")
+            .from("profiles")
             .select("*")
             .neq("id", profile?.id)
             .ilike("username", `%${value}%`) // البحث غير حساس لحالة الحروف
@@ -39,7 +38,7 @@ const Search = () => {
             console.error(error.message);
             setUsers([]);
         } else {
-            setUsers(data || []);
+            setUsers((data as User[]) || []);
         }
         setLoading(false);
     };

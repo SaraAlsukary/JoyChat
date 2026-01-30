@@ -1,5 +1,4 @@
-import { useState, type ChangeEvent } from "react";
-import image from "../assets/imgs/addAvatar.png";
+import { useState } from "react";
 import { supabase } from "../supabaseClient";
 import type { AuthError } from "@supabase/supabase-js";
 import { Link, useNavigate } from "react-router-dom";

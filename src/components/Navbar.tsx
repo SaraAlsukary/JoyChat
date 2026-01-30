@@ -5,7 +5,7 @@ import { useSession } from "../context/SessionProvider";
 
 const Navbar = () => {
     const navigate = useNavigate()
-    const { profile, loading: load } = useSession()
+    const { profile } = useSession()
     const [userProfile, setUserProfile] = useState(profile)
     const [loading, setLoading] = useState(false)
     const logoutHnadler = async () => {
